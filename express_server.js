@@ -13,13 +13,12 @@ app.disable('x-powered-by');
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
+// js-cookie, Bootstrap, body-parser and cooke-parser are installed
+
 // MORE IMPORTS HERE
-//body-parser! (I was right!), cookie-parser, formidable,
-//express-session, express-handlebars, parseurl
+//express-session, express-handlebars, parseurl, formidable,
 
-//get geoip-lite
-
-//bootstrap?
+//get geoip-litec
 
 //response.redirect(303, '/pagename') << will redirect a person, last line in function
 
@@ -86,14 +85,14 @@ app.use(function(error, request, response, next){
 var counterSchema = Schema({
   _id: {type: string, required: true},
   seq: {type: number, defaults: 0}
-})
+});
 
-var countDB = mongoose.model('counter', counterSchema);
+var countDB = mongoose.model('urlstore', counterSchema);
 
 var urldb = {
   "aaaaaaaa": "http://www.lighthouselabs.ca",
   "bbbbbbbb": "http://www.google.com"
-}
+};
 
 // FUNCTIONS BELOW
 
@@ -105,11 +104,11 @@ function generateRandomString() {
   stringToReturn = random(8, {numbers: false});
   console.log("Generated randomised string: " + stringToReturn);
   return stringToReturn;
-}
+};
 
 function snagURL(url, callback) {
 
-}
+};
 
 
 // var urlDatabase = {
