@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-//var PORT = process.env.PORT || 8080; // default port 8080
+//const PORT = process.env.PORT || 8080; // default port 8080
 const handlebars = require('express-handlebars').create({defaultLayout:'main'});
 
 const bodyParser = require("body-parser");
