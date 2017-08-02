@@ -7,3 +7,7 @@ function generateRandomString() {
   console.log("Generated randomised string: " + stringToReturn);
   return stringToReturn;
 }
+
+function snagURL(url, callback) {
+
+}
