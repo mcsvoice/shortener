@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 //const PORT = process.env.PORT || 8080; // default port 8080
 const handlebars = require('express-handlebars').create({defaultLayout:'main'});
+const mongoose = require('mongoose');
+const schema = mongoose.Schema;
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended: true}));
@@ -81,8 +83,15 @@ app.use(function(error, request, response, next){
 
 // this is where my URL db is
 
+var counterSchema = Schema({
+  _id: {type: string, required: true},
+  seq: {type: number, defaults: 0}
+})
+
+var countDB = mongoose.model('counter', counterSchema);
+
 var urldb = {
-  "aaaaaaaa" = "http://www.lighthouselabs.ca",
+  "aaaaaaaa": "http://www.lighthouselabs.ca",
   "bbbbbbbb": "http://www.google.com"
 }
 

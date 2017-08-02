@@ -5,10 +5,12 @@
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "bootstrap": "^3.3.7",
     "ejs": "^2.5.7",
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.10",
+    "mongoose": "^4.11.5",
     "string-random": "^0.1.0"
   },
   "devDependencies": {},
