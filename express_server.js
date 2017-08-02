@@ -1,7 +1,10 @@
-var express = require("express");
-var app = express();
+const express = require("express");
+const app = express();
 //var PORT = process.env.PORT || 8080; // default port 8080
-var handlebars = require('express-handlebars').create({defaultLayout:'main'});
+const handlebars = require('express-handlebars').create({defaultLayout:'main'});
+
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.disable('x-powered-by');
 
@@ -9,7 +12,10 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
 // MORE IMPORTS HERE
-//body-parser, cookie-parser, formidable
+//body-parser! (I was right!), cookie-parser, formidable,
+//express-session, express-handlebars, parseurl
+
+//get geoip-lite
 
 //bootstrap?
 
@@ -30,6 +36,10 @@ app.get('/about', function(request, response){
 
 app.get('/contact', function(request, response){
   response.render('contact');
+});
+
+app.get('/shorten', function(request, response){
+  response.render('shorten');
 });
 
 //set up a thank-you file for using the URL shortener
@@ -68,35 +78,7 @@ app.use(function(error, request, response, next){
 });
 
 
-
-
-
-
-
-
-
-
-
 // var urlDatabase = {
 //   "b2xVn2": "http://www.lighthouselabs.ca",
 //   "9sm5xK": "http://www.google.com"
 // };
-
-
-// app.set("view engine", "ejs")
-
-// app.get("/", (req, res) => {
-//   res.end("Hello!");
-// });
-
-// app.get("/urls", (req, res) => {
-//   let templateVars = { urls: urlDatabase };
-// });
-
-// app.get("/hello", (req, res) => {
-//   res.end("<html><body>Hello <b>World</b></body></html>\n");
-// });
-
-// app.listen(PORT, () => {
-//   console.log(`Example app listening on port ${PORT}!`);
-// });
